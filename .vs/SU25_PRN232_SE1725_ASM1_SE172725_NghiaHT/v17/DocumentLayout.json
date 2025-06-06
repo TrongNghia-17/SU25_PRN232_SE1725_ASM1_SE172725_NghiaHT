@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|d:\\prn232\\su25_prn232_se1725_asm1_se172725_nghiaht\\schoolmedicalmanagementsystem.repositories.nghiaht\\medicationcategoryquantnrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|solutionrelative:schoolmedicalmanagementsystem.repositories.nghiaht\\medicationcategoryquantnrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|d:\\prn232\\su25_prn232_se1725_asm1_se172725_nghiaht\\schoolmedicalmanagementsystem.repositories.nghiaht\\systemuseraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|solutionrelative:schoolmedicalmanagementsystem.repositories.nghiaht\\systemuseraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|d:\\prn232\\su25_prn232_se1725_asm1_se172725_nghiaht\\schoolmedicalmanagementsystem.repositories.nghiaht\\requestnghiahtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|solutionrelative:schoolmedicalmanagementsystem.repositories.nghiaht\\requestnghiahtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|d:\\prn232\\su25_prn232_se1725_asm1_se172725_nghiaht\\schoolmedicalmanagementsystem.repositories.nghiaht\\dbcontext\\su25_prn232_se1725_g2_smmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4FA7A784-A494-4F7B-AAC5-10364AF75351}|SchoolMedicalManagementSystem.Repositories.NghiaHT\\SMMS.Repositories.NghiaHT.csproj|solutionrelative:schoolmedicalmanagementsystem.repositories.nghiaht\\dbcontext\\su25_prn232_se1725_g2_smmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MedicationCategoryQuanTnRepository.cs",
+              "DocumentMoniker": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\MedicationCategoryQuanTnRepository.cs",
+              "RelativeDocumentMoniker": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\MedicationCategoryQuanTnRepository.cs",
+              "ToolTip": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\MedicationCategoryQuanTnRepository.cs",
+              "RelativeToolTip": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\MedicationCategoryQuanTnRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:37:25.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SU25_PRN232_SE1725_G2_SMMSContext.cs",
+              "DocumentMoniker": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\DBContext\\SU25_PRN232_SE1725_G2_SMMSContext.cs",
+              "RelativeDocumentMoniker": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\DBContext\\SU25_PRN232_SE1725_G2_SMMSContext.cs",
+              "ToolTip": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\DBContext\\SU25_PRN232_SE1725_G2_SMMSContext.cs",
+              "RelativeToolTip": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\DBContext\\SU25_PRN232_SE1725_G2_SMMSContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:36:08.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SystemUserAccountRepository.cs",
+              "DocumentMoniker": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\SystemUserAccountRepository.cs",
+              "RelativeDocumentMoniker": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\SystemUserAccountRepository.cs",
+              "ToolTip": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\SystemUserAccountRepository.cs",
+              "RelativeToolTip": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\SystemUserAccountRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:35:56.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RequestNghiaHtRepository.cs",
+              "DocumentMoniker": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\RequestNghiaHtRepository.cs",
+              "RelativeDocumentMoniker": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\RequestNghiaHtRepository.cs",
+              "ToolTip": "D:\\PRN232\\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\\SchoolMedicalManagementSystem.Repositories.NghiaHT\\RequestNghiaHtRepository.cs",
+              "RelativeToolTip": "SchoolMedicalManagementSystem.Repositories.NghiaHT\\RequestNghiaHtRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:35:40.155Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
