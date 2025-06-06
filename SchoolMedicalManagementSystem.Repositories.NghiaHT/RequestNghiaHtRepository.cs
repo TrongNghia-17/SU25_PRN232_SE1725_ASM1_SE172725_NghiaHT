@@ -3,6 +3,7 @@ using SMMS.Repositories.NghiaHT.Basic;
 using SMMS.Repositories.NghiaHT.DBContext;
 using SMMS.Repositories.NghiaHT.ModelExtensions;
 using SMMS.Repositories.NghiaHT.Models;
+using System.Linq;
 
 namespace SMMS.Repositories.NghiaHT;
 
@@ -63,7 +64,9 @@ public class RequestNghiaHtRepository : GenericRepository<RequestNghiaHt>
         SearchAsync(
         string medicationName
         , int quantity
-        , string categoryName, int currentPage, int pageSize)
+        , string categoryName
+        , int currentPage
+        , int pageSize)
     {
         var requestNghiaHt = await SearchAsync(medicationName, quantity, categoryName);
 
@@ -91,14 +94,14 @@ public class RequestNghiaHtRepository : GenericRepository<RequestNghiaHt>
         SearchWithPaginAsync(
         SearchRequestNghiaHt searchRequestNghiaHt)
     {
-        var requestNghiaHt = await this.SearchAsync(searchRequestNghiaHt.CategoryName, searchRequestNghiaHt.MedicationName, searchRequestNghiaHt.Quantity);
+        var requestNghiaHt = await this.SearchAsync(searchRequestNghiaHt.CategoryName, searchRequestNghiaHt.Quantity.GetValueOrDefault(), searchRequestNghiaHt.MedicationName);
 
         var totalItems = requestNghiaHt.Count;
-        var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+        var totalPages = (int)Math.Ceiling((double)totalItems / searchRequestNghiaHt.PageSize.GetValueOrDefault());
 
         requestNghiaHt = requestNghiaHt
-            .Skip(pageSize * (currentPage - 1))
-            .Take(pageSize)
+            .Skip(searchRequestNghiaHt.PageSize.GetValueOrDefault() * (searchRequestNghiaHt.CurrentPage.GetValueOrDefault() - 1))
+            .Take(searchRequestNghiaHt.PageSize.GetValueOrDefault())
             .ToList();
 
         var result = new PaginationResult<List<RequestNghiaHt>>
@@ -106,8 +109,8 @@ public class RequestNghiaHtRepository : GenericRepository<RequestNghiaHt>
             Items = requestNghiaHt,
             TotalItems = totalItems,
             TotalPages = totalPages,
-            CurrentPage = currentPage,
-            PageSize = pageSize
+            CurrentPage = searchRequestNghiaHt.CurrentPage.GetValueOrDefault(),
+            PageSize = searchRequestNghiaHt.PageSize.GetValueOrDefault()
         };
 
         return result;

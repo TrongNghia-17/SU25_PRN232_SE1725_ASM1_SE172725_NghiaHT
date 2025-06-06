@@ -12,22 +12,26 @@ public interface IRequestNghiaHtService
         (string medicationName
         , int quantity
         , string categoryName);
-    Task<int> CreateAsync(RequestNghiaHt requestNghiaHt);
-    Task<int> UpdateAsync(RequestNghiaHt requestNghiaHt);
-    Task<bool> DeleteAsync(int id);
-    Task<PaginationResult<List<RequestNghiaHt>>> 
+    Task<PaginationResult<List<RequestNghiaHt>>>
         SearchWithPagingAsync
         (
         string medicationName
         , int quantity
-        , string categoryName, 
-        int currentPage, 
+        , string categoryName,
+        int currentPage,
         int pageSize
         );
-    Task<PaginationResult<List<RequestNghiaHt>>> 
+    Task<PaginationResult<List<RequestNghiaHt>>> SearchWithPagingAsync(SearchRequestNghiaHt searchRequest);
+
+    Task<PaginationResult<List<RequestNghiaHt>>>
         GetAllWithPaging
         (
-        int currentPage, 
+        int currentPage,
         int pageSize
         );
+    Task<int> CreateAsync(RequestNghiaHt requestNghiaHt);
+    Task<int> UpdateAsync(RequestNghiaHt requestNghiaHt);
+    Task<bool> DeleteAsync(int id);
+    
+    
 }

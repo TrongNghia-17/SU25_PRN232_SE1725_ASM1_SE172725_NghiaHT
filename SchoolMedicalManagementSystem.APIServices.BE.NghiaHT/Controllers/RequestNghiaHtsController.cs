@@ -73,7 +73,7 @@ public class RequestNghiaHtsController : ControllerBase
         return await _requestNghiaHtServiceService.SearchAllAsync(medicationName, quantity, categoryName);
     }
 
-    [HttpGet("{pageSize}/{categoryName}")]
+    [HttpGet("{currentPage}/{pageSize}")]
     [Authorize(Roles = "1, 2")]
     public async Task<PaginationResult<List<RequestNghiaHt>>> Get(int currentPage, int pageSize)
     {
@@ -86,6 +86,13 @@ public class RequestNghiaHtsController : ControllerBase
     {
         return await _requestNghiaHtServiceService.SearchWithPagingAsync(medicationName, quantity, categoryName, currentPage, pageSize);
 
+    }
+
+    [HttpPost("Search")]
+    [Authorize(Roles = "1,2")]
+    public async Task<PaginationResult<List<RequestNghiaHt>>> Get(SearchRequestNghiaHt searchRequest)
+    {
+        return await _requestNghiaHtServiceService.SearchWithPagingAsync(searchRequest);
     }
 }
 

@@ -2,8 +2,8 @@
 
 public class SearchRequest
 {
-    public int? urrentPage { get; set; } = 1;
-    public int? pageSize { get; set; } = 10;
+    public int? CurrentPage { get; set; }
+    public int? PageSize { get; set; }
 }
 
 public class SearchRequestNghiaHt : SearchRequest

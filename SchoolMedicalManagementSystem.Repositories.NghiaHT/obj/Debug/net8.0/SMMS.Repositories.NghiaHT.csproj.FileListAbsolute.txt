@@ -1,0 +1,15 @@
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\bin\Debug\net8.0\SMMS.Repositories.NghiaHT.deps.json
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\bin\Debug\net8.0\SMMS.Repositories.NghiaHT.runtimeconfig.json
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\bin\Debug\net8.0\SMMS.Repositories.NghiaHT.dll
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\bin\Debug\net8.0\SMMS.Repositories.NghiaHT.pdb
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.csproj.AssemblyReference.cache
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.GeneratedMSBuildEditorConfig.editorconfig
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.AssemblyInfoInputs.cache
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.AssemblyInfo.cs
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.csproj.CoreCompileInputs.cache
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.sourcelink.json
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.dll
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\refint\SMMS.Repositories.NghiaHT.dll
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.pdb
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\SMMS.Repositories.NghiaHT.genruntimeconfig.cache
+D:\PRN232\SU25_PRN232_SE1725_ASM1_SE172725_NghiaHT\SchoolMedicalManagementSystem.Repositories.NghiaHT\obj\Debug\net8.0\ref\SMMS.Repositories.NghiaHT.dll

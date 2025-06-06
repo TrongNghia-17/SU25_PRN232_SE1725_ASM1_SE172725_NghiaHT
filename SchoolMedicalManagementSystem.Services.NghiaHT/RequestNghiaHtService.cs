@@ -58,4 +58,10 @@ public class RequestNghiaHtService : IRequestNghiaHtService
     {
         return _requestNghiaHtRepository.GetAllWithPaging(currentPage, pageSize);
     }
+
+    public async Task<PaginationResult<List<RequestNghiaHt>>> SearchWithPagingAsync(SearchRequestNghiaHt searchRequest)
+    {
+        var list = await _requestNghiaHtRepository.SearchWithPaginAsync(searchRequest);
+        return list ?? new PaginationResult<List<RequestNghiaHt>>();
+    }
 }
