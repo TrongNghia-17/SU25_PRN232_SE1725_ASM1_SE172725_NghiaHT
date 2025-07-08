@@ -119,4 +119,38 @@ public class RequestNghiaHtsController : Controller
 
         return medicationCategoryQuanTn;
     }
+
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var requestNghiaHt = new RequestNghiaHt();
+
+        using (var httpClient = new HttpClient())
+        {
+
+            var tokenString = HttpContext.Request.Cookies.FirstOrDefault(c => c.Key == "TokenString").Value;
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenString);
+
+
+            using (var response = await httpClient.GetAsync(APIEndPoint + $"RequestNghiaHts/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    requestNghiaHt = JsonConvert.DeserializeObject<RequestNghiaHt>(content);
+                }
+            }
+        }
+
+        if (requestNghiaHt == null)
+        {
+            return NotFound();
+        }
+
+        return View(requestNghiaHt);
+    }
 }
