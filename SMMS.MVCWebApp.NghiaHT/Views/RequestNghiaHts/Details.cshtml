@@ -40,48 +40,24 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Instruction)
         </dd>
-        @* <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Form)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Form)
-        </dd> *@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Quantity)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Quantity)
         </dd>
-        @* <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Strength)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Strength)
-        </dd> *@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Indications)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Indications)
         </dd>
-        @* <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contraindications)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contraindications)
-        </dd> *@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreatedDate)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CreatedDate)
         </dd>
-        @* <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartDate)
-        </dd> *@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IsApproved)
         </dt>
@@ -98,5 +74,6 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.RequestNghiaHtid">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@Model?.RequestNghiaHtid">Delete</a> |
     <a asp-action="Index">Back to List</a>
 </div>

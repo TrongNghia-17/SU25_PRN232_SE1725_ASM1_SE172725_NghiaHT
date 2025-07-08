@@ -40,25 +40,13 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Instruction)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Form)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Form)
-        </dd>
+        </dd>        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Quantity)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Quantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Strength)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Strength)
-        </dd>
+        </dd>    
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Indications)
         </dt>
@@ -66,23 +54,11 @@
             @Html.DisplayFor(model => model.Indications)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contraindications)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contraindications)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CreatedDate)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
+        </dd>      
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IsApproved)
         </dt>
@@ -90,10 +66,10 @@
             @Html.DisplayFor(model => model.IsApproved)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MedicationCategoryQuanTn)
+            @Html.DisplayNameFor(model => model.MedicationCategoryQuanTn.CategoryName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MedicationCategoryQuanTn.MedicationCategoryQuanTnid)
+            @Html.DisplayFor(model => model.MedicationCategoryQuanTn.CategoryName)
         </dd>
     </dl>
     
