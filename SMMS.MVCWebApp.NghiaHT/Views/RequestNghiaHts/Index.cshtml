@@ -46,44 +46,87 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MedicationName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dosage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Frequency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reason)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Instruction)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Indications)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsApproved)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MedicationCategoryQuanTn.CategoryName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RequestNghiaHtid">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RequestNghiaHtid">Details</a> 
-                @* <a asp-action="Delete" asp-route-id="@item.RequestNghiaHtid">Delete</a> *@
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dosage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Frequency)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instruction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Indications)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsApproved)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicationCategoryQuanTn.CategoryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RequestNghiaHtid">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.RequestNghiaHtid">Details</a>
+                    @* <a asp-action="Delete" asp-route-id="@item.RequestNghiaHtid">Delete</a> *@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <!-- Nút Previous -->
+            <li class="page-item @(ViewBag.CurrentPage <= 1 ? "disabled" : "")">
+                <a class="page-link" asp-action="Index"
+                   asp-route-medicationName="@ViewBag.MedicationName"
+                   asp-route-quantity="@ViewBag.Quantity"
+                   asp-route-categoryName="@ViewBag.CategoryName"
+                   asp-route-currentPage="@(ViewBag.CurrentPage - 1)"
+                   asp-route-pageSize="@ViewBag.PageSize">Previous</a>
+            </li>
+
+            <!-- Các số trang -->
+            @{
+                int totalPages = (int)Math.Ceiling((double)ViewBag.TotalItems / ViewBag.PageSize);
+                for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                        <a class="page-link" asp-action="Index"
+                           asp-route-medicationName="@ViewBag.MedicationName"
+                           asp-route-quantity="@ViewBag.Quantity"
+                           asp-route-categoryName="@ViewBag.CategoryName"
+                           asp-route-currentPage="@i"
+                           asp-route-pageSize="@ViewBag.PageSize">@i</a>
+                    </li>
+                }
+            }
+
+            <!-- Nút Next -->
+            <li class="page-item @(ViewBag.CurrentPage >= totalPages ? "disabled" : "")">
+                <a class="page-link" asp-action="Index"
+                   asp-route-medicationName="@ViewBag.MedicationName"
+                   asp-route-quantity="@ViewBag.Quantity"
+                   asp-route-categoryName="@ViewBag.CategoryName"
+                   asp-route-currentPage="@(ViewBag.CurrentPage + 1)"
+                   asp-route-pageSize="@ViewBag.PageSize">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
