@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SMMS.APIServices.BE.NghiaHT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+047689fab268a455c4f5d7b602db587fcb1a2769")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e954c1c2befb05980eb69379510f1b6912684044")]
 [assembly: System.Reflection.AssemblyProductAttribute("SMMS.APIServices.BE.NghiaHT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SMMS.APIServices.BE.NghiaHT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

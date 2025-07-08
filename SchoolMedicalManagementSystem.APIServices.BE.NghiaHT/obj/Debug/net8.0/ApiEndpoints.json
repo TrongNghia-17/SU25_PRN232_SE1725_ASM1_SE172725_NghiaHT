@@ -1,15 +1,15 @@
 [
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.MedicationCategoryQuanTnsController",
     "Method": "Get",
-    "RelativePath": "api/RequestNghiaHts",
+    "RelativePath": "api/MedicationCategoryQuanTns",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SchoolMedicalManagementSystem.Repositories.NghiaHT.Models.RequestNghiaHt, SchoolMedicalManagementSystem.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMMS.Repositories.NghiaHT.Models.MedicationCategoryQuanTn, SMMS.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20,7 +20,27 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "Method": "Get",
+    "RelativePath": "api/RequestNghiaHts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMMS.Repositories.NghiaHT.Models.RequestNghiaHt, SMMS.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Post",
     "RelativePath": "api/RequestNghiaHts",
     "HttpMethod": "POST",
@@ -29,7 +49,7 @@
     "Parameters": [
       {
         "Name": "requestNghiaHt",
-        "Type": "SchoolMedicalManagementSystem.Repositories.NghiaHT.Models.RequestNghiaHt",
+        "Type": "SMMS.Repositories.NghiaHT.Models.RequestNghiaHt",
         "IsRequired": true
       }
     ],
@@ -46,7 +66,38 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "Method": "Get",
+    "RelativePath": "api/RequestNghiaHts/{currentPage}/{pageSize}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "currentPage",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMMS.Repositories.NghiaHT.ModelExtensions.PaginationResult\u00601[[System.Collections.Generic.List\u00601[[SMMS.Repositories.NghiaHT.Models.RequestNghiaHt, SMMS.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Get",
     "RelativePath": "api/RequestNghiaHts/{id}",
     "HttpMethod": "GET",
@@ -61,7 +112,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SchoolMedicalManagementSystem.Repositories.NghiaHT.Models.RequestNghiaHt",
+        "Type": "SMMS.Repositories.NghiaHT.Models.RequestNghiaHt",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -72,7 +123,7 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Put",
     "RelativePath": "api/RequestNghiaHts/{id}",
     "HttpMethod": "PUT",
@@ -81,7 +132,7 @@
     "Parameters": [
       {
         "Name": "requestNghiaHt",
-        "Type": "SchoolMedicalManagementSystem.Repositories.NghiaHT.Models.RequestNghiaHt",
+        "Type": "SMMS.Repositories.NghiaHT.Models.RequestNghiaHt",
         "IsRequired": true
       },
       {
@@ -103,7 +154,7 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Delete",
     "RelativePath": "api/RequestNghiaHts/{id}",
     "HttpMethod": "DELETE",
@@ -129,7 +180,7 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Get",
     "RelativePath": "api/RequestNghiaHts/{medicationName}/{quantity}/{categoryName}",
     "HttpMethod": "GET",
@@ -154,7 +205,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[SchoolMedicalManagementSystem.Repositories.NghiaHT.Models.RequestNghiaHt, SchoolMedicalManagementSystem.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[SMMS.Repositories.NghiaHT.Models.RequestNghiaHt, SMMS.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -165,7 +216,7 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Get",
     "RelativePath": "api/RequestNghiaHts/{medicationName}/{quantity}/{categoryName}/{currentPage}/{pageSize}",
     "HttpMethod": "GET",
@@ -200,7 +251,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SchoolMedicalManagementSystem.Repositories.NghiaHT.ModelExtensions.PaginationResult\u00601[[System.Collections.Generic.List\u00601[[SchoolMedicalManagementSystem.Repositories.NghiaHT.Models.RequestNghiaHt, SchoolMedicalManagementSystem.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "SMMS.Repositories.NghiaHT.ModelExtensions.PaginationResult\u00601[[System.Collections.Generic.List\u00601[[SMMS.Repositories.NghiaHT.Models.RequestNghiaHt, SMMS.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -211,32 +262,22 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Get",
-    "RelativePath": "api/RequestNghiaHts/{pageSize}/{categoryName}",
-    "HttpMethod": "GET",
+    "RelativePath": "api/RequestNghiaHts/Search",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "currentPage",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "categoryName",
-        "Type": "",
+        "Name": "searchRequest",
+        "Type": "SMMS.Repositories.NghiaHT.ModelExtensions.SearchRequestNghiaHt",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "SchoolMedicalManagementSystem.Repositories.NghiaHT.ModelExtensions.PaginationResult\u00601[[System.Collections.Generic.List\u00601[[SchoolMedicalManagementSystem.Repositories.NghiaHT.Models.RequestNghiaHt, SchoolMedicalManagementSystem.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "SMMS.Repositories.NghiaHT.ModelExtensions.PaginationResult\u00601[[System.Collections.Generic.List\u00601[[SMMS.Repositories.NghiaHT.Models.RequestNghiaHt, SMMS.Repositories.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -247,7 +288,7 @@
     ]
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.SystemUserAccountsController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.SystemUserAccountsController",
     "Method": "Login",
     "RelativePath": "api/SystemUserAccounts/Login",
     "HttpMethod": "POST",
@@ -256,14 +297,14 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.SystemUserAccountsController\u002BLoginRequest",
+        "Type": "SMMS.APIServices.BE.NghiaHT.Controllers.SystemUserAccountsController\u002BLoginRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.Controllers.WeatherForecastController",
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
     "HttpMethod": "GET",
@@ -272,7 +313,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SchoolMedicalManagementSystem.APIServices.BE.NghiaHT.WeatherForecast, SchoolMedicalManagementSystem.APIServices.BE.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SMMS.APIServices.BE.NghiaHT.WeatherForecast, SMMS.APIServices.BE.NghiaHT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -35,7 +35,8 @@ public partial class RequestNghiaHt
 
     public DateTime? StartDate { get; set; }
 
-    public bool? IsApproved { get; set; }
+    //public bool? IsApproved { get; set; }
+    public bool IsApproved { get; set; }
 
     public virtual MedicationCategoryQuanTn MedicationCategoryQuanTn { get; set; }
 }

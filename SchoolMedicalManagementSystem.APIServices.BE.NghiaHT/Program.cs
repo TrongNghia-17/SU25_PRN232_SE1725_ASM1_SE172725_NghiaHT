@@ -13,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRequestNghiaHtService, RequestNghiaHtService>();
+builder.Services.AddScoped<MedicationCategoryQuanTnService>();
 builder.Services.AddScoped<SystemUserAccountService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>

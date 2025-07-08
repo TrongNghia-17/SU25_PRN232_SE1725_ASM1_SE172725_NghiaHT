@@ -89,7 +89,7 @@ public class RequestNghiaHtsController : ControllerBase
     }
 
     [HttpPost("Search")]
-    [Authorize(Roles = "1,2")]
+    [Authorize(Roles = "1, 2")]
     public async Task<PaginationResult<List<RequestNghiaHt>>> Get(SearchRequestNghiaHt searchRequest)
     {
         return await _requestNghiaHtServiceService.SearchWithPagingAsync(searchRequest);
