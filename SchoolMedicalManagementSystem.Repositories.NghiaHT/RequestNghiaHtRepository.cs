@@ -39,20 +39,19 @@ public class RequestNghiaHtRepository : GenericRepository<RequestNghiaHt>
         return item ?? new RequestNghiaHt();
     }
 
-    public async Task<List<RequestNghiaHt>> 
-        SearchAsync(
-        string medicationName
-        , int quantity
-        , string categoryName
-        )
+    public async Task<List<RequestNghiaHt>> SearchAsync(
+                                                        string medicationName
+                                                        , int quantity
+                                                        , string categoryName
+                                                        )
     {
         var item = await _context
             .RequestNghiaHts
             .Include(x => x.MedicationCategoryQuanTn)
             .Where(x =>
             (
-            x.MedicationName.Contains(medicationName) || string.IsNullOrEmpty(medicationName)
-            && x.Quantity == quantity || quantity == null || quantity == 0)
+            x.MedicationName.Contains(medicationName) || string.IsNullOrEmpty(medicationName))
+            && (x.Quantity == quantity || quantity == null || quantity == 0)
             && (x.MedicationCategoryQuanTn.CategoryName.Contains(categoryName) || string.IsNullOrEmpty(categoryName))
             )
             .ToListAsync();
@@ -90,9 +89,7 @@ public class RequestNghiaHtRepository : GenericRepository<RequestNghiaHt>
         return result;
     }
 
-    public async Task<PaginationResult<List<RequestNghiaHt>>>
-        SearchWithPaginAsync(
-        SearchRequestNghiaHt searchRequestNghiaHt)
+    public async Task<PaginationResult<List<RequestNghiaHt>>> SearchWithPaginAsync(SearchRequestNghiaHt searchRequestNghiaHt)
     {
         var requestNghiaHt = await this.SearchAsync(searchRequestNghiaHt.CategoryName, searchRequestNghiaHt.Quantity.GetValueOrDefault(), searchRequestNghiaHt.MedicationName);
 
