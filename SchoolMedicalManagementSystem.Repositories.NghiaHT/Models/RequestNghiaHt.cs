@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SMMS.Repositories.NghiaHT.Models;
 
@@ -11,31 +12,38 @@ public partial class RequestNghiaHt
 
     public int? MedicationCategoryQuanTnid { get; set; }
 
+    [Required]
     public string MedicationName { get; set; }
 
+    [Required]
     public string Dosage { get; set; }
 
+    [Required]
     public string Frequency { get; set; }
 
+    [Required]
     public string Reason { get; set; }
 
+    [Required]
     public string Instruction { get; set; }
 
     public string Form { get; set; }
 
+    [Required]
     public int? Quantity { get; set; }
 
     public string Strength { get; set; }
 
+    [Required]
     public string Indications { get; set; }
 
     public string Contraindications { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    [Required]
+    public DateTime CreatedDate { get; set; }
 
     public DateTime? StartDate { get; set; }
 
-    //public bool? IsApproved { get; set; }
     public bool IsApproved { get; set; }
 
     public virtual MedicationCategoryQuanTn MedicationCategoryQuanTn { get; set; }

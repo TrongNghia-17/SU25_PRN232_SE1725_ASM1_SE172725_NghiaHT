@@ -11,7 +11,7 @@ public class RequestNghiaHtsController : Controller
 {
     private string APIEndPoint = "https://localhost:7128/api/";
 
-    public async Task<IActionResult> Index(string medicationName, int quantity, string categoryName, int currentPage = 1, int pageSize = 3)
+    public async Task<IActionResult> Index(string medicationName, int quantity, string categoryName, int currentPage = 1, int pageSize = 10)
     {
         var searchRequest = new SearchRequestNghiaHt
         {
@@ -60,6 +60,39 @@ public class RequestNghiaHtsController : Controller
         var medicationCategoryQuanTn = await this.GetMedicationCategoryQuanTn();
         ViewData["MedicationCategoryQuanTnid"] = new SelectList(medicationCategoryQuanTn, "MedicationCategoryQuanTnid", "CategoryName");
         return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(RequestNghiaHt requestNghiaHt)
+    {
+        if (ModelState.IsValid)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var tokenString = HttpContext.Request.Cookies.FirstOrDefault(c => c.Key == "TokenString").Value;
+
+                httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenString);
+
+                using (var response = await httpClient.PostAsJsonAsync(APIEndPoint + "RequestNghiaHts", requestNghiaHt))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var content = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<int>(content);
+
+                        if (result > 0)
+                        {
+                            return RedirectToAction(nameof(Index));
+                        }
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        var medicationCategoryQuanTn = await this.GetMedicationCategoryQuanTn();
+        ViewData["MedicationCategoryQuanTnid"] = new SelectList(medicationCategoryQuanTn, "MedicationCategoryQuanTnid", "CategoryName");
+        return View(requestNghiaHt);
     }
 
     public async Task<List<MedicationCategoryQuanTn>> GetMedicationCategoryQuanTn()
