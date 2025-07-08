@@ -12,7 +12,7 @@ public class RequestNghiaHtsController : Controller
 {
     private string APIEndPoint = "https://localhost:7128/api/";
 
-    public async Task<IActionResult> Index(string medicationName, int quantity, string categoryName, int currentPage = 1, int pageSize = 2)
+    public async Task<IActionResult> Index(string medicationName, int? quantity, string categoryName, int currentPage = 1, int pageSize = 2)
     {
         var searchRequest = new SearchRequestNghiaHt
         {
