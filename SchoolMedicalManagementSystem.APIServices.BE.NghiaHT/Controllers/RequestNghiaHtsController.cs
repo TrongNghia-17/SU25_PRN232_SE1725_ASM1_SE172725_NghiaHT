@@ -45,7 +45,7 @@ public class RequestNghiaHtsController : ControllerBase
     }
 
     // PUT api/<RequestNghiaHtsController>/5
-    [HttpPut("{id}")]
+    [HttpPut()]
     [Authorize(Roles = "1, 2")]
     public async Task<int> Put(RequestNghiaHt requestNghiaHt)
     {

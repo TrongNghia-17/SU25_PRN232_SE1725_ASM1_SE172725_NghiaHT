@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RequestNghiaHtid" />
             <div class="form-group">
-                <label asp-for="MedicationCategoryQuanTnid" class="control-label"></label>
+                <label asp-for="MedicationCategoryQuanTn.CategoryName" class="control-label"></label>
                 <select asp-for="MedicationCategoryQuanTnid" class="form-control" asp-items="ViewBag.MedicationCategoryQuanTnid"></select>
                 <span asp-validation-for="MedicationCategoryQuanTnid" class="text-danger"></span>
             </div>
@@ -44,19 +44,9 @@
                 <span asp-validation-for="Instruction" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Form" class="control-label"></label>
-                <input asp-for="Form" class="form-control" />
-                <span asp-validation-for="Form" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Quantity" class="control-label"></label>
                 <input asp-for="Quantity" class="form-control" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Strength" class="control-label"></label>
-                <input asp-for="Strength" class="form-control" />
-                <span asp-validation-for="Strength" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Indications" class="control-label"></label>
@@ -64,23 +54,18 @@
                 <span asp-validation-for="Indications" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contraindications" class="control-label"></label>
-                <input asp-for="Contraindications" class="form-control" />
-                <span asp-validation-for="Contraindications" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="CreatedDate" class="control-label"></label>
                 <input asp-for="CreatedDate" class="form-control" />
                 <span asp-validation-for="CreatedDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" class="form-control" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="IsApproved" class="control-label"></label>
                 <input asp-for="IsApproved" class="form-control" />
+                <span asp-validation-for="IsApproved" class="text-danger"></span>
+            </div> *@
+            <div class="form-group form-check">
+                <label asp-for="IsApproved" class="form-check-label"></label>
+                <input asp-for="IsApproved" class="form-check-input" type="checkbox" />
                 <span asp-validation-for="IsApproved" class="text-danger"></span>
             </div>
             <div class="form-group">

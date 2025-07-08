@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using SMMS.Repositories.NghiaHT.ModelExtensions;
 using SMMS.Repositories.NghiaHT.Models;
@@ -214,5 +215,81 @@ public class RequestNghiaHtsController : Controller
         }
 
         return RedirectToAction(nameof(Index));
+    }
+
+    public async Task<IActionResult> Edit(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var requestNghiaHt = new RequestNghiaHt();
+        using (var httpClient = new HttpClient())
+        {
+
+            var tokenString = HttpContext.Request.Cookies.FirstOrDefault(c => c.Key == "TokenString").Value;
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenString);
+
+
+            using (var response = await httpClient.GetAsync(APIEndPoint + $"RequestNghiaHts/{id}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    requestNghiaHt = JsonConvert.DeserializeObject<RequestNghiaHt>(content);
+                }
+            }
+        }
+
+        if (requestNghiaHt == null)
+        {
+            return NotFound();
+        }
+        var medicationCategoryQuanTn = await this.GetMedicationCategoryQuanTn();
+        ViewData["MedicationCategoryQuanTnid"] = new SelectList(medicationCategoryQuanTn, "MedicationCategoryQuanTnid", "CategoryName");
+        return View(requestNghiaHt);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(RequestNghiaHt requestNghiaHt)
+    {
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    var tokenString = HttpContext.Request.Cookies.FirstOrDefault(c => c.Key == "TokenString").Value;
+
+                    httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenString);
+
+                    using (var response = await httpClient.PutAsJsonAsync(APIEndPoint + "RequestNghiaHts", requestNghiaHt))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var content = await response.Content.ReadAsStringAsync();
+                            var result = JsonConvert.DeserializeObject<int>(content);
+
+                            if (result > 0)
+                            {
+                                //return RedirectToAction(nameof(Index));
+                                return RedirectToAction(nameof(Details), new { id = requestNghiaHt.RequestNghiaHtid });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        var medicationCategoryQuanTn = await this.GetMedicationCategoryQuanTn();
+        ViewData["MedicationCategoryQuanTnid"] = new SelectList(medicationCategoryQuanTn, "MedicationCategoryQuanTnid", "CategoryName");
+        return View(requestNghiaHt);
     }
 }

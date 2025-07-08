@@ -67,6 +67,32 @@
   },
   {
     "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
+    "Method": "Put",
+    "RelativePath": "api/RequestNghiaHts",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestNghiaHt",
+        "Type": "SMMS.Repositories.NghiaHT.Models.RequestNghiaHt",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Get",
     "RelativePath": "api/RequestNghiaHts/{currentPage}/{pageSize}",
     "HttpMethod": "GET",
@@ -113,37 +139,6 @@
     "ReturnTypes": [
       {
         "Type": "SMMS.Repositories.NghiaHT.Models.RequestNghiaHt",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
-    "Method": "Put",
-    "RelativePath": "api/RequestNghiaHts/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "requestNghiaHt",
-        "Type": "SMMS.Repositories.NghiaHT.Models.RequestNghiaHt",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
         "MediaTypes": [
           "text/plain",
           "application/json",
