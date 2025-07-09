@@ -39,23 +39,49 @@ public class RequestNghiaHtRepository : GenericRepository<RequestNghiaHt>
         return item ?? new RequestNghiaHt();
     }
 
-    public async Task<List<RequestNghiaHt>> SearchAsync(
-                                                        string medicationName
-                                                        , int quantity
-                                                        , string categoryName
-                                                        )
-    {
-        var item = await _context
-            .RequestNghiaHts
-            .Include(x => x.MedicationCategoryQuanTn)
-            .Where(x =>
-            (
-            x.MedicationName.Contains(medicationName) || string.IsNullOrEmpty(medicationName))
-            && (x.Quantity == quantity || quantity == null || quantity == 0)
-            && (x.MedicationCategoryQuanTn.CategoryName.Contains(categoryName) || string.IsNullOrEmpty(categoryName))
-            )
-            .ToListAsync();
+    //public async Task<List<RequestNghiaHt>> SearchAsync(string medicationName, int quantity, string categoryName)
+    //{
+    //    var item = await _context
+    //        .RequestNghiaHts
+    //        .Include(x => x.MedicationCategoryQuanTn)
+    //        .Where(x =>
+    //        (
+    //        x.MedicationName.Contains(medicationName) || string.IsNullOrEmpty(medicationName))
+    //        && (x.Quantity == quantity || quantity == null || quantity == 0)
+    //        && (x.MedicationCategoryQuanTn.CategoryName.Contains(categoryName) || string.IsNullOrEmpty(categoryName))
+    //        )
+    //        .ToListAsync();
 
+    //    return item ?? new List<RequestNghiaHt>();
+    //}
+
+    public async Task<List<RequestNghiaHt>> SearchAsync(string medicationName, int quantity, string categoryName)
+    {
+        var query = _context.RequestNghiaHts
+            .Include(x => x.MedicationCategoryQuanTn)
+            .AsQueryable();
+
+        // Lọc theo MedicationName
+        if (!string.IsNullOrEmpty(medicationName))
+        {
+            query = query.Where(x => x.MedicationName != null && x.MedicationName.Contains(medicationName));
+        }
+
+        // Lọc theo Quantity
+        if (quantity != 0)
+        {
+            query = query.Where(x => x.Quantity == quantity);
+        }
+
+        // Lọc theo CategoryName
+        if (!string.IsNullOrEmpty(categoryName))
+        {
+            query = query.Where(x => x.MedicationCategoryQuanTn != null &&
+                                    x.MedicationCategoryQuanTn.CategoryName != null &&
+                                    x.MedicationCategoryQuanTn.CategoryName.Contains(categoryName));
+        }
+
+        var item = await query.ToListAsync();
         return item ?? new List<RequestNghiaHt>();
     }
 
@@ -91,7 +117,7 @@ public class RequestNghiaHtRepository : GenericRepository<RequestNghiaHt>
 
     public async Task<PaginationResult<List<RequestNghiaHt>>> SearchWithPaginAsync(SearchRequestNghiaHt searchRequestNghiaHt)
     {
-        var requestNghiaHt = await this.SearchAsync(searchRequestNghiaHt.CategoryName, searchRequestNghiaHt.Quantity.GetValueOrDefault(), searchRequestNghiaHt.MedicationName);
+        var requestNghiaHt = await this.SearchAsync(searchRequestNghiaHt.MedicationName, searchRequestNghiaHt.Quantity.GetValueOrDefault(), searchRequestNghiaHt.CategoryName);
 
         var totalItems = requestNghiaHt.Count;
         var totalPages = (int)Math.Ceiling((double)totalItems / searchRequestNghiaHt.PageSize.GetValueOrDefault());

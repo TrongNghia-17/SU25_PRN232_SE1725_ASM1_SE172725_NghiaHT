@@ -121,7 +121,10 @@
 
             <!-- Các số trang -->
             @{
-                int totalPages = (int)Math.Ceiling((double)ViewBag.TotalItems / ViewBag.PageSize);
+                int totalItems = ViewBag.TotalItems ?? 0; // Giá trị mặc định là 0 nếu null
+                int pageSize = ViewBag.PageSize ?? 2; // Giá trị mặc định là 2 nếu null
+                int totalPages = pageSize > 0 ? (int)Math.Ceiling((double)totalItems / pageSize) : 0;
+
                 for (int i = 1; i <= totalPages; i++)
                 {
                     <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">

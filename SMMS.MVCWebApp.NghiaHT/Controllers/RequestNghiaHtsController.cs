@@ -22,37 +22,48 @@ public class RequestNghiaHtsController : Controller
             CurrentPage = currentPage,
             PageSize = pageSize
         };
+
         using (var httpClient = new HttpClient())
         {
-
-
             var tokenString = HttpContext.Request.Cookies.FirstOrDefault(c => c.Key == "TokenString").Value;
-            //tokenString = HttpContext.Request.Cookies["TokenString"];
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + tokenString);
 
-
-
-            using (var response = await httpClient.PostAsJsonAsync(APIEndPoint + "RequestNghiaHts/Search", searchRequest))
+            try
             {
-                if (response.IsSuccessStatusCode)
+                using (var response = await httpClient.PostAsJsonAsync(APIEndPoint + "RequestNghiaHts/Search", searchRequest))
                 {
-                    var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<PaginationResult<List<RequestNghiaHt>>>(content);
-
-                    if (result != null)
+                    if (response.IsSuccessStatusCode)
                     {
-                        ViewBag.MedicationName = medicationName;
-                        ViewBag.Quantity = quantity;
-                        ViewBag.CategoryName = categoryName;
-                        ViewBag.CurrentPage = currentPage;
-                        ViewBag.PageSize = pageSize;
-                        ViewBag.TotalItems = result.TotalItems;
-                        return View(result.Items);
+                        var content = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<PaginationResult<List<RequestNghiaHt>>>(content);
+
+                        if (result != null)
+                        {
+                            ViewBag.MedicationName = medicationName;
+                            ViewBag.Quantity = quantity;
+                            ViewBag.CategoryName = categoryName;
+                            ViewBag.CurrentPage = currentPage;
+                            ViewBag.PageSize = pageSize;
+                            ViewBag.TotalItems = result.TotalItems; // Đảm bảo TotalItems không null
+                            return View(result.Items ?? new List<RequestNghiaHt>());
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi nếu cần
+                Console.WriteLine($"Error calling API: {ex.Message}");
+            }
         }
 
+        // Gán giá trị mặc định nếu API thất bại
+        ViewBag.MedicationName = medicationName;
+        ViewBag.Quantity = quantity;
+        ViewBag.CategoryName = categoryName;
+        ViewBag.CurrentPage = currentPage;
+        ViewBag.PageSize = pageSize;
+        ViewBag.TotalItems = 0; // Giá trị mặc định khi không có dữ liệu
         return View(new List<RequestNghiaHt>());
     }
 
