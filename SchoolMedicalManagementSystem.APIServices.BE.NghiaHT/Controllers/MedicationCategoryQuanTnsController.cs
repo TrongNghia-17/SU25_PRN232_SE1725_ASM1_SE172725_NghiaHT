@@ -24,28 +24,32 @@ public class MedicationCategoryQuanTnsController : ControllerBase
         return await _medicationCategoryQuanTnService.GetAllAsync();
     }
 
-    //// GET api/<EventTypePhucTmsController>/5
-    //[HttpGet("{id}")]
-    //public string Get(int id)
-    //{
-    //	return "value";
-    //}
+    // GET api/<MedicationCategoryQuanTnsController>/5
+    [HttpGet("{id}")]
+    public async Task<MedicationCategoryQuanTn> Get(int id)
+    {
+        return await _medicationCategoryQuanTnService.GetByIdAsync(id);
+    }
 
-    //// POST api/<EventTypePhucTmsController>
-    //[HttpPost]
-    //public void Post([FromBody] string value)
-    //{
-    //}
+    // POST api/<MedicationCategoryQuanTnsController>
+    [HttpPost]
+    public async Task<int> Post(MedicationCategoryQuanTn medicationCategoryQuanTn)
+    {
+        return await _medicationCategoryQuanTnService.CreateAsync(medicationCategoryQuanTn);
+    }
 
-    //// PUT api/<EventTypePhucTmsController>/5
-    //[HttpPut("{id}")]
-    //public void Put(int id, [FromBody] string value)
-    //{
-    //}
+    // PUT api/<MedicationCategoryQuanTnsController>/5
+    [HttpPut("{id}")]
+    public async Task<int> Put(int id, [FromBody] MedicationCategoryQuanTn medicationCategoryQuanTn)
+    {
+        medicationCategoryQuanTn.MedicationCategoryQuanTnid = id;
+        return await _medicationCategoryQuanTnService.UpdateAsync(medicationCategoryQuanTn);
+    }
 
-    //// DELETE api/<EventTypePhucTmsController>/5
-    //[HttpDelete("{id}")]
-    //public void Delete(int id)
-    //{
-    //}
+    // DELETE api/<MedicationCategoryQuanTnsController>/5
+    [HttpDelete("{id}")]
+    public async Task<bool> Delete(int id)
+    {
+        return await _medicationCategoryQuanTnService.DeleteAsync(id);
+    }
 }

@@ -292,4 +292,9 @@ public class RequestNghiaHtsController : Controller
         ViewData["MedicationCategoryQuanTnid"] = new SelectList(medicationCategoryQuanTn, "MedicationCategoryQuanTnid", "CategoryName");
         return View(requestNghiaHt);
     }
+
+    public async Task<IActionResult> MedicationCategoryQuanTnList()
+    {
+        return View();
+    }
 }

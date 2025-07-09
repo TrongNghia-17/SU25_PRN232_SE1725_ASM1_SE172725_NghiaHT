@@ -20,6 +20,115 @@
     ]
   },
   {
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.MedicationCategoryQuanTnsController",
+    "Method": "Post",
+    "RelativePath": "api/MedicationCategoryQuanTns",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicationCategoryQuanTn",
+        "Type": "SMMS.Repositories.NghiaHT.Models.MedicationCategoryQuanTn",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.MedicationCategoryQuanTnsController",
+    "Method": "Get",
+    "RelativePath": "api/MedicationCategoryQuanTns/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SMMS.Repositories.NghiaHT.Models.MedicationCategoryQuanTn",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.MedicationCategoryQuanTnsController",
+    "Method": "Put",
+    "RelativePath": "api/MedicationCategoryQuanTns/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "medicationCategoryQuanTn",
+        "Type": "SMMS.Repositories.NghiaHT.Models.MedicationCategoryQuanTn",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.MedicationCategoryQuanTnsController",
+    "Method": "Delete",
+    "RelativePath": "api/MedicationCategoryQuanTns/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SMMS.APIServices.BE.NghiaHT.Controllers.RequestNghiaHtsController",
     "Method": "Get",
     "RelativePath": "api/RequestNghiaHts",

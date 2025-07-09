@@ -1,0 +1,180 @@
+﻿<h1>Medication Categories - Call RESTful API via jQuery.Ajax</h1>
+
+<div class="">
+    <button type="button" class="btn btn-primary" onclick="addNew();">
+        Add Category
+    </button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody class="tblBody">
+    </tbody>
+</table>
+
+<div class="modal" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="categoryModalLabel">Add/Edit Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="medicationCategoryQuanTnid" value="0" />
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label for="categoryName">Category Name</label>
+                        <input type="text" id="categoryName" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btSave" type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            loadData();
+
+            $("#btSave").click(function () {
+                const categoryId = parseInt($("#medicationCategoryQuanTnid").val());
+                const payload = {
+                    medicationCategoryQuanTnid: categoryId,
+                    categoryName: $("#categoryName").val(),
+                    description: $("#description").val()
+                };
+
+                const isEdit = categoryId > 0;
+                const method = isEdit ? 'PUT' : 'POST';
+                const url = isEdit
+                    ? 'https://localhost:7128/api/MedicationCategoryQuanTns/' + categoryId
+                    : 'https://localhost:7128/api/MedicationCategoryQuanTns';
+
+                const token = getCookie('TokenString');
+
+                $.ajax({
+                    type: method,
+                    url: url,
+                    contentType: "application/json",
+                    data: JSON.stringify(payload),
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    success: function () {
+                        $('#categoryModal').modal('hide');
+                        loadData();
+                    },
+                    error: function (xhr) {
+                        alert("Lỗi khi lưu: " + xhr.responseText);
+                    }
+                });
+            });
+        });
+
+        function loadData() {
+            const token = getCookie('TokenString');
+
+            $.ajax({
+                url: 'https://localhost:7128/api/MedicationCategoryQuanTns',
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
+                success: function (result) {
+                    var html = '';
+                    $.each(result, function (key, item) {
+                        html += '<tr>';
+                        html += '<td>' + item.categoryName + '</td>';
+                        html += '<td>' + (item.description || '') + '</td>';
+                        html += '<td>';
+                        html += '<button type="button" class="btn btn-info me-1" onclick="viewDetail(\'' + item.medicationCategoryQuanTnid + '\')">Detail</button>';
+                        html += '<button type="button" class="btn btn-warning me-1" onclick="editCategory(\'' + item.medicationCategoryQuanTnid + '\')">Edit</button>';
+                        html += '<button type="button" class="btn btn-danger" onclick="deleteCategory(\'' + item.medicationCategoryQuanTnid + '\')">Delete</button>';
+                        html += '</td>';
+                        html += '</tr>';
+                    });
+
+                    $('.tblBody').html(html);
+                },
+                error: function (xhr) {
+                    alert("Lỗi khi tải dữ liệu: " + xhr.responseText);
+                }
+            });
+        }
+
+        function addNew() {
+            $("#medicationCategoryQuanTnid").val(0);
+            $("#categoryName, #description").val('');
+            $('#categoryModal').modal('show');
+        }
+
+        function viewDetail(id) {
+            alert("Chi tiết cho ID: " + id);
+        }
+
+        function editCategory(id) {
+            const token = getCookie('TokenString');
+
+            $.ajax({
+                url: 'https://localhost:7128/api/MedicationCategoryQuanTns/' + id,
+                type: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
+                success: function (data) {
+                    $("#medicationCategoryQuanTnid").val(data.medicationCategoryQuanTnid);
+                    $("#categoryName").val(data.categoryName);
+                    $("#description").val(data.description);
+                    $('#categoryModal').modal('show');
+                },
+                error: function (xhr) {
+                    alert("Không lấy được dữ liệu: " + xhr.responseText);
+                }
+            });
+        }
+
+        function deleteCategory(id) {
+            if (confirm("Bạn có chắc muốn xóa danh mục này?")) {
+                const token = getCookie('TokenString');
+
+                $.ajax({
+                    url: 'https://localhost:7128/api/MedicationCategoryQuanTns/' + id,
+                    type: 'DELETE',
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    success: function () {
+                        loadData();
+                    },
+                    error: function (xhr) {
+                        alert("Không thể xóa: " + xhr.responseText);
+                    }
+                });
+            }
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return '';
+        }
+    </script>
+}
